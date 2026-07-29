@@ -15,7 +15,6 @@ public class Solution {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String solutionId;
     private String controlType;
     private String name;
     @Column(length = 2000)

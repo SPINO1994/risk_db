@@ -18,7 +18,6 @@ public class Incident {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String incidentId;
     private String relatedRiskId;
     private String category;
     private String name;
@@ -35,4 +34,7 @@ public class Incident {
     @Column(length = 2000)
     private String result;
     private LocalDateTime closureDateTime;
+
+    @Transient
+    private String relatedRiskName;
 }

@@ -15,7 +15,6 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String workerId;
     private String fullName;
     private String department;
     private String position;
@@ -24,4 +23,9 @@ public class Employee {
     private String relatedRoleId;
     private String managerWorkerId;
     private String status;
+
+    @Transient
+    private String relatedRoleName;
+    @Transient
+    private String managerWorkerName;
 }

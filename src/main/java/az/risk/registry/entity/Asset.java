@@ -17,7 +17,6 @@ public class Asset {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String assetId;
     private String category;
     private String name;
     private String ownerWorkerId;
@@ -28,4 +27,9 @@ public class Asset {
     private String status;
     @Column(length = 2000)
     private String note;
+
+    @Transient
+    private String ownerWorkerName;
+    @Transient
+    private String responsibleWorkerName;
 }

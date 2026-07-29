@@ -15,7 +15,6 @@ public class RaciMatrix {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String raciId;
     private String activityArea;
     private String activityStage;
     private String activityCode;

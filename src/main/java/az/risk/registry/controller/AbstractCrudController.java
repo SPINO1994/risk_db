@@ -12,7 +12,10 @@ public abstract class AbstractCrudController<T, ID> {
     protected abstract CrudService<T, ID> getService();
 
     @GetMapping
-    public List<T> findAll() {
+    public List<T> findAll(@RequestParam(value = "search", required = false) String search) {
+        if (search != null && !search.trim().isEmpty()) {
+            return getService().search(search.trim());
+        }
         return getService().findAll();
     }
 

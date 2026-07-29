@@ -17,7 +17,6 @@ public class ThreatAssessment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String scenarioId;
     private String threatId;
     private String assetId;
     private String discrepancyId;
@@ -28,4 +27,11 @@ public class ThreatAssessment {
     private String probabilityDegree;
     private LocalDate assessmentDate;
     private String status;
+
+    @Transient
+    private String threatName;
+    @Transient
+    private String assetName;
+    @Transient
+    private String discrepancyName;
 }

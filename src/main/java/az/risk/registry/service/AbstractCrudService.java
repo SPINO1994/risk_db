@@ -14,12 +14,22 @@ public abstract class AbstractCrudService<T, ID> implements CrudService<T, ID> {
 
     @Override
     public List<T> findAll() {
-        return getRepository().findAll();
+        List<T> items = getRepository().findAll();
+        items.forEach(this::enrichDisplayNames);
+        return items;
+    }
+
+    @Override
+    public List<T> search(String query) {
+        // Default implementation returns all; subclasses override for specific search
+        return findAll();
     }
 
     @Override
     public Optional<T> findById(ID id) {
-        return getRepository().findById(id);
+        Optional<T> item = getRepository().findById(id);
+        item.ifPresent(this::enrichDisplayNames);
+        return item;
     }
 
     @Override
@@ -52,5 +62,12 @@ public abstract class AbstractCrudService<T, ID> implements CrudService<T, ID> {
             throw new ResourceNotFoundException(getResourceName() + " not found with id: " + id);
         }
         getRepository().deleteById(id);
+    }
+
+    /**
+     * Override in subclasses to populate @Transient display name fields.
+     */
+    protected void enrichDisplayNames(T entity) {
+        // No-op by default — subclasses override for entities with FK references
     }
 }

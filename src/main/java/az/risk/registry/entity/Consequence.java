@@ -15,7 +15,6 @@ public class Consequence {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String consequenceId;
     private String category;
     private String type;
     private String name;
@@ -25,4 +24,9 @@ public class Consequence {
     private String assetId;
     private String severity;
     private String status;
+
+    @Transient
+    private String threatScenarioName;
+    @Transient
+    private String assetName;
 }

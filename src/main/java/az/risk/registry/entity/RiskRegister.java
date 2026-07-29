@@ -17,7 +17,6 @@ public class RiskRegister {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String riskId;
     private String category;
     private String name;
     @Column(length = 2000)
@@ -32,4 +31,15 @@ public class RiskRegister {
     private Boolean incidentOccurred;
     private String status;
     private String ownerWorkerId;
+
+    @Transient
+    private String threatScenarioName;
+    @Transient
+    private String discrepancyName;
+    @Transient
+    private String consequenceName;
+    @Transient
+    private String solutionName;
+    @Transient
+    private String ownerWorkerName;
 }

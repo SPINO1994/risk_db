@@ -15,7 +15,6 @@ public class Threat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String threatId;
     private String category;
     private String name;
     @Column(length = 2000)

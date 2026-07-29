@@ -7,6 +7,8 @@ public interface CrudService<T, ID> {
 
     List<T> findAll();
 
+    List<T> search(String query);
+
     Optional<T> findById(ID id);
 
     T create(T entity);

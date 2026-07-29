@@ -17,7 +17,6 @@ public class Threshold {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String thresholdId;
     private String category;
     private String name;
     @Column(length = 2000)
@@ -35,4 +34,7 @@ public class Threshold {
     private LocalDate startDate;
     private LocalDate endDate;
     private String status;
+
+    @Transient
+    private String assetName;
 }

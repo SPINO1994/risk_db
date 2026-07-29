@@ -15,7 +15,6 @@ public class Requirement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String requirementId;
     private String category;
     private String name;
     @Column(length = 2000)

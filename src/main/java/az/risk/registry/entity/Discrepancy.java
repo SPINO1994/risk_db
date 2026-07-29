@@ -15,7 +15,6 @@ public class Discrepancy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String discrepancyId;
     private String category;
     private String name;
     @Column(length = 2000)
@@ -24,4 +23,9 @@ public class Discrepancy {
     private String assetId;
     private String addressObject;
     private String severity;
+
+    @Transient
+    private String violatedRequirementName;
+    @Transient
+    private String assetName;
 }
