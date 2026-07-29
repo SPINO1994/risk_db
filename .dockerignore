@@ -1,0 +1,21 @@
+# Git
+.git
+.gitignore
+
+# IDE files
+.idea
+*.iml
+
+# Maven build output (builder stage will regenerate)
+target/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Test reports
+**/surefire-reports/
