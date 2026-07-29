@@ -1,0 +1,19 @@
+# Target directory (compiled Java code)
+target/
+*.egg-info
+
+# IDE specific files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# Local environment configuration
+.env
+*.local
+
+# OS generated files
+.DS_Store
+Thumbs.db

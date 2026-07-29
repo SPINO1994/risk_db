@@ -1,0 +1,197 @@
+:root {
+    --sidebar-width: 280px;
+    --sidebar-bg: #1e293b;
+    --sidebar-hover: #334155;
+    --sidebar-active: #0ea5e9;
+    --content-bg: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-muted: #64748b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--content-bg);
+    color: #0f172a;
+}
+
+.app-shell {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    color: #e2e8f0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid #334155;
+}
+
+.sidebar-header h1 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.sidebar-header p {
+    margin: 0.35rem 0 0;
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+.sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0.75rem 0;
+}
+
+.sidebar-nav li button {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: transparent;
+    color: inherit;
+    padding: 0.65rem 1rem;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.sidebar-nav li button:hover {
+    background: var(--sidebar-hover);
+}
+
+.sidebar-nav li button.active {
+    background: rgba(14, 165, 233, 0.15);
+    color: #7dd3fc;
+    border-left: 3px solid var(--sidebar-active);
+    padding-left: calc(1rem - 3px);
+}
+
+.main-content {
+    flex: 1;
+    padding: 1.5rem;
+    min-width: 0;
+}
+
+.panel-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    padding: 1.25rem;
+}
+
+.panel-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.35rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table thead th {
+    white-space: nowrap;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+}
+
+.table tbody td {
+    vertical-align: middle;
+    font-size: 0.9rem;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table tbody td.actions-cell {
+    white-space: nowrap;
+    max-width: none;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: var(--text-muted);
+}
+
+.loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.25);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-overlay.show {
+    display: flex;
+}
+
+.modal-body .form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.modal-body textarea {
+    min-height: 90px;
+}
+
+/* Modal scroll fix */
+#entityModal .modal-dialog-scrollable .modal-body {
+    overflow-y: auto;
+    max-height: 65vh;
+}
+
+/* form display:contents fix for Firefox/older browsers */
+#entityForm {
+    display: contents;
+}
+
+@media (max-width: 992px) {
+    .app-shell {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+    .sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.25rem;
+        padding: 0.5rem;
+    }
+}
